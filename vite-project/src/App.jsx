@@ -6,47 +6,32 @@ import PropsDisplayer from "./PropsDisplayer";
 import City from "./City";
 import Pet from "./Pet";
 import Greeting from "./Greeting";
-function ExampleComponent() {
-  return (
-    <div className="ExampleComponent componentBox">
-      <h1>My Example Component</h1>
-      <p>My first React component!</p>
-    </div>
-  );
-}
+import FullName from "./FullName";
+import { ComplexComment } from "./ComplexComment";
+import Callout from"./CallOut";
+import MoviesList from "./MoviestList";
+import Bigcats from "./BigCats";
+import MoodChanger from "./MoodChanger";
+import Smile from "./Emoji";
+
 function App() {
   const [count, setCount] = useState(0);
-  const spiderman = {
-    name: "Spiderman",
-    alterEgo: "Peter Parker",
-    catchPhrase: "With great power comes great responsibility",
-  };
-  function Welcome(props) {
-    // custom Welcome component
-    return (
-      <div className="Welcome">
-        {/* if the 'name' prop exists, render it on the screen */}
-        <h3>Welcome {props.name}!</h3>
-        {/* if this component has children, render them here */}
-        {props.children}
-      </div>
-    );
-  }
 
-  const spideyJSX = (
-    <div>
-      <h3>{spiderman.name}</h3>
-      <blockquote>{spiderman.catchPhrase}</blockquote>
-      <cite>{spiderman.alterEgo}</cite>
-    </div>
-  );
-  const invalidJSX = (
-    <>
-      <p>paragraph 1</p>
-      <p>paragraph 2</p>;
-    </>
-  );
-  // JSX expressions must have one parent element
+  const comment = {
+    author: { name: "John Doe" },
+    text: "This is a complex comment!",
+    date: new Date(),
+  };
+  const comment1 = {
+    date: new Date(),
+    text: "I hope you enjoy learning React!",
+    author: {
+      name: "Hello Kitty",
+      avatarUrl: "https://placekitten.com/g/64/64",
+    },
+  };
+ 
+
   return (
     <>
       <div>
@@ -57,41 +42,40 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <Welcome name="Mark">
-        <p>Children of Welcome</p>
-        <PropsDisplayer />
-        <PropsDisplayer myProp="first prop" />
+      <Smile/>
+<MoodChanger/>
+      <Bigcats/>
+      <MoviesList/>
+      <Callout title="Nested React Component"
+message="Simple message with a fancy box applied via composition">
+<FullName first="Elon" last="Musk" />
+</Callout>
+      {/* Passing props to ComplexComment */}
+      <ComplexComment author={comment.author} text={comment.text} date={comment.date} />
+      <ComplexComment
+        author={comment1.author}
+        date={comment1.date}
+        text={comment1.text}
+      />
+      <PropsDisplayer/>
 
-        {/* Renders the component with multiple props - add your own! */}
-        <PropsDisplayer prop1="first" prop2="second" prop3={3} />
-      </Welcome>
-      <ExampleComponent />
-      <City name="Sydney" />
-      <Pet name="HAHA" />
-      {/* LAB EXERCISE 1 */}
-      <Greeting name="Mark"></Greeting>
-      <Greeting></Greeting>
-
-      {/* country is not specified, will use default */}
+      {/* Other components */}
+      <Greeting name="Mark" />
+      <Greeting />
+      <FullName />
+      <FullName first="Kendrick" last="Lamar" />
+      <FullName first="Kendrick" middle="Middle" last="Lamar" />
       <City name="Melbourne" state="VIC" />
-
-      {/* all values are specified, won't use defaults */}
-      <City name="Chicago" state="Illinois" country="USA" />
+      <Pet name="HAHA" />
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <p>Edit <code>src/App.jsx</code> and save to test HMR</p>
       </div>
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className="spiderman">{spideyJSX}</div>
-      <div className="invalid-jsx">{invalidJSX}</div>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
   );
 }

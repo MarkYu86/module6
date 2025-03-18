@@ -4,17 +4,26 @@
   padding: 2rem;
   text-align: center;
 }
-.componentBox { border: 1px solid #aaa; margin: 1em;
-  padding: 1em; text-align: center; background: #f61f1f; }
+
+.componentBox {
+  border: 1px solid #aaa;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  background: #f61f1f;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -23,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -40,4 +50,21 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.FancyBox {
+  --mask: linear-gradient(#000 0 0) 50%/calc(100% - 37.00px) calc(100% - 37.00px) no-repeat,
+    radial-gradient(farthest-side, #000 98%, #0000) 0 0/2em 2em round;
+  mask:
+    var(--mask);
+  -webkit-mask: var(--mask);
+  padding: 2em;
+  background: linear-gradient(135deg, #1f005c, #5b0060, #870160, #ac255e,
+      #ca485c, #ffb56b) fixed;
+  color: white;
+}
+
+.FancyBox-blue {
+  background: linear-gradient(135deg, #140061, #50006E,
+      #64018C, #6955FF, #4684FF, #1FA7FF) fixed;
 }
