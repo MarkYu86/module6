@@ -13,6 +13,7 @@ import MoviesList from "./MoviestList";
 import Bigcats from "./BigCats";
 import MoodChanger from "./MoodChanger";
 import Smile from "./Emoji";
+import { BirthdayTranslator } from "./BirthdayTranslator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -58,7 +59,7 @@ message="Simple message with a fancy box applied via composition">
         text={comment1.text}
       />
       <PropsDisplayer/>
-
+<BirthdayTranslator/>
       {/* Other components */}
       <Greeting name="Mark" />
       <Greeting />
