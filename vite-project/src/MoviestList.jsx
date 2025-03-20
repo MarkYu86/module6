@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { AddMovieForm } from "../AddMovieForm";
+
 function Movie({ title, year, synopsis }) {
   return (
     <>
@@ -33,8 +36,18 @@ function MoviesList() {
       synopsis: "Explorers travel through a wormhole in space.",
     },
   ];
+  const [movieState, setMovieState] = useState(movies);
+  const reverseMovies = () => {
+    setMovieState((prevMovies) => [...prevMovies].reverse());
+  };
 
-  const movieItems = movies.map((movie) => (
+  // add this in MoviesList component
+  const handleAddMovie = (newMovie) => {
+    newMovie.id = movieState.length + 1; // unreliable but succinct
+    setMovieState([...movieState, newMovie]);
+  };
+
+  const movieItems = movieState.map((movie) => (
     <Movie
       key={movie.id} // key prop is required for lists
       title={movie.title}
@@ -47,8 +60,9 @@ function MoviesList() {
 
   return (
     <div className="MoviesList componentBox">
+      <AddMovieForm onAddMovie={handleAddMovie} />
+      <button onClick={reverseMovies}>Reverse Order</button>
       <ul>
-        {" "}
         {/* iterate over each movie, print the title in a list */}
         <ul>{movieItems}</ul>
       </ul>

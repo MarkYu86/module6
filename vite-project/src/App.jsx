@@ -8,12 +8,15 @@ import Pet from "./Pet";
 import Greeting from "./Greeting";
 import FullName from "./FullName";
 import { ComplexComment } from "./ComplexComment";
-import Callout from"./CallOut";
+import Callout from "./CallOut";
 import MoviesList from "./MoviestList";
 import Bigcats from "./BigCats";
 import MoodChanger from "./MoodChanger";
 import Smile from "./Emoji";
 import { BirthdayTranslator } from "./BirthdayTranslator";
+import  Weather  from "./Weather";
+import LoginForm from "./LoginForm";
+import ExplodingBomb from "./ExpladingBomb";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,7 +34,6 @@ function App() {
       avatarUrl: "https://placekitten.com/g/64/64",
     },
   };
- 
 
   return (
     <>
@@ -43,23 +45,32 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <Smile/>
-<MoodChanger/>
-      <Bigcats/>
-      <MoviesList/>
-      <Callout title="Nested React Component"
-message="Simple message with a fancy box applied via composition">
-<FullName first="Elon" last="Musk" />
-</Callout>
+      <ExplodingBomb/>
+      <LoginForm/>
+      <Weather />
+      <Smile />
+      <MoodChanger />
+      <Bigcats />
+      <MoviesList />
+      <Callout
+        title="Nested React Component"
+        message="Simple message with a fancy box applied via composition"
+      >
+        <FullName first="Elon" last="Musk" />
+      </Callout>
       {/* Passing props to ComplexComment */}
-      <ComplexComment author={comment.author} text={comment.text} date={comment.date} />
+      <ComplexComment
+        author={comment.author}
+        text={comment.text}
+        date={comment.date}
+      />
       <ComplexComment
         author={comment1.author}
         date={comment1.date}
         text={comment1.text}
       />
-      <PropsDisplayer/>
-<BirthdayTranslator/>
+      <PropsDisplayer />
+      <BirthdayTranslator />
       {/* Other components */}
       <Greeting name="Mark" />
       <Greeting />
@@ -73,10 +84,14 @@ message="Simple message with a fancy box applied via composition">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>Edit <code>src/App.jsx</code> and save to test HMR</p>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
 
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   );
 }
