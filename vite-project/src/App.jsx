@@ -17,6 +17,7 @@ import { BirthdayTranslator } from "./BirthdayTranslator";
 import  Weather  from "./Weather";
 import LoginForm from "./LoginForm";
 import ExplodingBomb from "./ExpladingBomb";
+import Calculator from "./Calculator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -45,6 +46,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <Calculator/>
       <ExplodingBomb/>
       <LoginForm/>
       <Weather />

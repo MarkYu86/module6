@@ -68,3 +68,21 @@
   background: linear-gradient(135deg, #140061, #50006E,
       #64018C, #6955FF, #4684FF, #1FA7FF) fixed;
 }
+
+.calc {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  background-color: orange;
+}
+
+input, select, button {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  box-sizing: border-box;
+}
